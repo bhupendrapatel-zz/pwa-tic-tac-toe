@@ -1,0 +1,9 @@
+button {
+    font-size: 4em !important;
+    height: 100%;
+    width: 100%;
+    &:focus {
+        box-shadow: none !important;
+        border-color: transparent !important;
+    }
+}
