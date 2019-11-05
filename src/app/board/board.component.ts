@@ -9,6 +9,8 @@ export class BoardComponent implements OnInit {
   squares: any[];
   xIsNext: boolean;
   winner: string;
+  isVsCPU: boolean;
+  isCPUNext: boolean;
 
   constructor() { }
 
@@ -16,10 +18,12 @@ export class BoardComponent implements OnInit {
     this.newGame();
   }
 
-  newGame() {
+  newGame(vsCPU = false) {
     this.squares = Array(9).fill(null);
     this.winner = null;
     this.xIsNext = true;
+    this.isVsCPU = vsCPU;
+    this.isCPUNext = false;
   }
 
   get player() {
@@ -33,6 +37,9 @@ export class BoardComponent implements OnInit {
     if (!this.squares[idx]) {
       this.squares.splice(idx, 1, this.player);
       this.xIsNext = !this.xIsNext;
+    }
+    if (this.isVsCPU) {
+      this.isCPUNext = !this.isCPUNext;
     }
 
     this.winner = this.calculateWinner();

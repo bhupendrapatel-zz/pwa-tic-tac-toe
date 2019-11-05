@@ -1,16 +1,29 @@
 <div class="wrapper">
     <h5>Current Player: {{ player }}</h5>
 
-    <button 
-        nbButton 
-        outline 
-        status="danger"
-        (click)="newGame()">
-        Start New Game
-    </button>
+    <div class="example-items-rows">
+        <button 
+            nbButton 
+            outline 
+            shape="round"
+            status="danger"
+            (click)="newGame(false)">
+            vs <nb-icon icon="person-outline"></nb-icon>
+        </button>
+        <button 
+            nbButton 
+            outline 
+            shape="round"
+            status="danger"
+            (click)="newGame(true)">
+            vs CPU
+        </button>
+    </div>
 
     <h5 *ngIf="winner">
-        Player {{ winner }} won the game!!
+        <nb-icon icon="star-outline" status="warning"></nb-icon> 
+        {{ winner }} won the game!!
+        <nb-icon icon="star-outline" status="warning"></nb-icon>
     </h5>
 
     <main>
